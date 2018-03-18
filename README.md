@@ -1,1 +1,1 @@
-### [Javascript](http://github.com/Sonukr/TNT/JS)
+### [Javascript](http://github.com/Sonukr/TNT/tree/master/JS)
