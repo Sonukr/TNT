@@ -130,7 +130,7 @@ let obj = {};
 for(i=0;i<arr.length; i++){
 	obj[arr[i].id]=arr[i]
 }
-<!-- converting the above object's key value to an object and push into an array -->
+<!-- converting the above obj key value to an object and push into an array -->
 const newArr = [];
 for(let key in obj){
 	let newObj= {};
@@ -178,7 +178,7 @@ The content of `obj` and `newArray` are copied respectively  in your `clipboard`
   {
     "2": {
       "id": 2,
-      "name": "Monu"
+      "name": "John"
     }
   }
 ]
