@@ -114,8 +114,79 @@ console.group();
 console.groupEnd();
 console.log("GOing Back");
 ```
+#### 9 - Copying the data/obj/array to clipboard from console.
+Somtimes, all of us want to copy the data/obj/array from console to clipboard. generally we select entire content then use ctrl+c or cmd+c. using this method we never get pefetct(entire) object/array. we can use `copy` for get this done perfectly.
 
-#### 9 - String substitutions
+```javascript
+let arr = [{id:1, name:'Sonu'},{id:2, name:'John'}]
+    
+```
+we can easily copy above array by selecting. but, what if an opertaion is performed on this array and stored in another variable and we want to copy exact data in clipboard ?
+ 
+Ex: I performed some opertions over a variable data;
+```Javascript   
+<!-- Converting the array item to a bing object -->
+let obj = {};
+for(i=0;i<arr.length; i++){
+	obj[arr[i].id]=arr[i]
+}
+<!-- converting the above object's key value to an object and push into an array -->
+const newArr = [];
+for(let key in obj){
+	let newObj= {};
+	if(obj.hasOwnProperty(key)){
+		newObj[key]=obj[key];
+	}
+	newArr.push(newObj)
+}
+```
+
+now, if i will check the obj and newArr output in console We will get something like this.
+
+```jvascript
+{1: {…}, 2: {…}} //a bing object from array
+(2) [{…}, {…}]   //an array from above object
+```
+We can **expand this object**, but we can't **copy** entire object as a single object in **clipboard**. To solve these kind of issue we can use `copy()`.
+
+so, we have data in obj variable. let's use that.
+```
+copy(obj);
+copy(newArr)
+```
+The content of `obj` and `newArray` are copied respectively  in your `clipboard`. you can paste it anywhere.  you will find something like this.
+```javascript
+<!-- A big object from array-->
+{
+  "1": {
+    "id": 1,
+    "name": "Sonu"
+  },
+  "2": {
+    "id": 2,
+    "name": "John"
+  }
+}
+<!-- An array from the above object -->
+[
+  {
+    "1": {
+      "id": 1,
+      "name": "Sonu"
+    }
+  },
+  {
+    "2": {
+      "id": 2,
+      "name": "Monu"
+    }
+  }
+]
+```
+
+
+
+#### 10 - String substitutions
 When logging, you can incorporate variables using string substitutions. These references should be types (%s = string, %i = integer, %o = object, %f = float).
 
 ```Javascript
@@ -124,7 +195,7 @@ Hello, Sonu. You have Won $ 100000
 ```
 
 
-#### 10 - console.clear()
+#### 11 - console.clear()
 Well, having written so many logs, it’s now time to clear your console a little.
 
 ```javascript
